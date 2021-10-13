@@ -2,7 +2,7 @@
 # The purpose of this program is to check your password against the top X passwords in a password dump.
 
 #  file to search passwords in
-dumpfile = "C:\\Users\\J\\Dumps\\rockyou.txt"
+dumpfile = input('Enter FILEPATH of password list:\n')
 
 rank = input('Enter NUMBER of top passwords to check (press enter to check all):\n')
 
