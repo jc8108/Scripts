@@ -6,3 +6,5 @@ You can then supply it a hash that you have to compare it against what it came u
 
 
 # Things
+--PasswordChecker -- A python program that searches in a password dump (I used rockyou.txt) for a supplied password to see if it is in there.
+BYOPD (bring your own password dump). 
