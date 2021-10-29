@@ -6,5 +6,8 @@ You can then supply it a hash that you have to compare it against what it came u
 
 
 # Things
---PasswordChecker -- A python program that searches in a password dump (I used rockyou.txt) for a supplied password to see if it is in there.
+--PasswordChecker-- A python program that searches in a password dump (I used rockyou.txt) for a supplied password to see if it is in there.
 BYOPD (bring your own password dump). 
+
+--BreachDefense-- A python game that loops until 1 of 2 outcomes is achieved- the hackers destroy your network or you defeat all the hackers.
+Sometimes you win, sometimes you lose! As of now it takes no input, more of an experiment to play around with classes.
