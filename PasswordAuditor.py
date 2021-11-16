@@ -6,23 +6,21 @@ dumpfile = input('Enter FILEPATH of password list:\n')
 
 rank = input('Enter NUMBER of top passwords to check (press enter to check all):\n')
 
-password = input('Enter PASSWORD to check in wordlist:\n')
+password = input('Enter PASSWORD to check against wordlist:\n')
 
 
 def custom_check():  # checking only a certain amount of passwords
-    print(f'Searching for password in top {rank} passwords...\n{dumpfile}\n')
+    print(f'Searching for password in top {rank} passwords at...\n{dumpfile}\n')
     not_found = True
     for x in range(len(head)):
         head[x] = head[x].strip()  # creates list and strips newline char
         if head[x] == password:
             print(f'Password found. Ranked number {x} in most common passwords.')
             not_found = False
-        if not_found:
-            print(f'Password not found.')
 
 
 def check_all():  # checking every password in a list
-    print(f'Searching entire password list...\n{dumpfile}')
+    print(f'Searching entire password list at...\n{dumpfile}')
     not_found = True
     for x in range(len(all)):
         all[x] = all[x].strip()  # creates list and strips newline char
@@ -40,3 +38,13 @@ with open(dumpfile, "r", encoding='utf-8') as wordlist:  # checks top/all depend
     else:
         head = [next(wordlist) for t in range(int(rank))]  # gather just the top X amount of lines
         custom_check()
+
+c = "Password does not contain any "
+if password.isalnum():
+    print(f'{c}special characters.')
+if password.isalpha():
+    print(f'{c}numbers.')
+if password.isnumeric():
+    print(f'{c}letters.')
+if len(password) < 8:
+    print('Password is under 8 characters.')
