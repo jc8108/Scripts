@@ -6,6 +6,8 @@ You can then supply it a hash that you have to compare it against what it came u
 
 --Jmap-- A bash script that runs different nmap scans. A short TCP scan, all TCP ports, a short UDP scan, and an optional all UDP port scan.
 
+--ADNames-- A python script to take a list of names, and then create common first-last combinations used in Active Directory such as f.last or first.last
+
 # Tools
 --PasswordAuditor-- A python program that searches in a password dump (I used rockyou.txt) for a supplied password to see if it is in there.
 BYOPD (bring your own password dump). 
