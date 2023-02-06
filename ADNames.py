@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # Simple script to create combinations of user names for brute forcing
-# Have caution running this multiple times, as the username-combo list is written in APPEND mode
+# Have caution running this multiple times without updating outfile, as the username-combo list is written in APPEND mode
 # Therefore if you run it, then run it again in the same directory, you will have duplicates
 
 import sys
