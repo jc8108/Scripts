@@ -8,6 +8,7 @@ import sys
 print("Usage: ADNames.py <listofnames.txt>\nNames must be in format of: First Last\n")
 
 name_file = (sys.argv[1])
+out_file = (sys.argv[2])
 
 with open(name_file, 'r') as names:
 	for x in names.readlines():
@@ -30,14 +31,15 @@ with open(name_file, 'r') as names:
 			lower_list.append(l.lower())
 		for u in new_list:
 			upper_list.append(u.upper())
-		with open("username-combos.txt", "a+") as userlist:
+		with open(out_file, "a+") as userlist:
 			for p in new_list:
 				userlist.write("\n")
 				userlist.write(p)
-			for w in lower_list:
-				userlist.write("\n")
-				userlist.write(w)
-			for n in upper_list:
-				userlist.write("\n")
-				userlist.write(n)
-print("username-combos.txt ready in current directory.")
+# UNCOMMENT if you want lower and upper case as well, WIP to add flags to make it optional
+#			for w in lower_list:
+#				userlist.write("\n")
+#				userlist.write(w)
+#			for n in upper_list:
+#				userlist.write("\n")
+#				userlist.write(n)
+print(f"{out_file} ready in current directory.")
