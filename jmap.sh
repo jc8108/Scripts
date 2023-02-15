@@ -7,7 +7,7 @@ if [ "$(id -u)" -ne 0 ];
         exit
 fi
 
-if [ ! -d "nmap-scans" ]; then
+if [ ! -d "nmap-scans-$1" ]; then
         mkdir nmap-scans-$1
 fi
 
