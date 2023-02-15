@@ -2,11 +2,14 @@
 # creating directory for scans
 
 echo -e "Usage: jmap.sh <IP> skip(optional to skip scanning all UDP ports)\n"
+
+# checking if root
 if [ "$(id -u)" -ne 0 ];
         then echo "Not root. Exiting."
         exit
 fi
 
+# checking for directories
 if [ ! -d "nmap-scans-$1" ]; then
         mkdir nmap-scans-$1
 fi
@@ -17,6 +20,7 @@ if [ ! -d "tmp" ]; then
         mkdir tmp
 fi
 
+# running TCP scans
 echo -e "[+]+ Scanning for quick wins..\n"
 nmap -sS -p80,443,21,23,88,139,445,8080 -sV -Pn $1
 
@@ -32,6 +36,7 @@ grep open nmap-tcp.all > nmap-versions-tcp
 
 echo -e "\n[+] TCP scans complete. Running UDP scans now... this will take a while.\n"
 
+# running UDP scans
 nmap -sU -sV -Pn -p7,69,88,111,123,161,162,3702,5353,10161,10162,44818,47808 -T4 $1 -oN tmp/nmap-udp.init1
 nmap -sU -sV -Pn --top-ports 100 -T4 $1 -oN tmp/nmap-udp.init2
 
@@ -42,14 +47,19 @@ sort -u tmp/nmap-versions-udp > nmap-versions-udp
 
 echo -e "[+] Initial UDP scans are complete. Scanning all UDP ports now unless skipped. \n"
 
+# checking if skipping all UDP ports
+# if skipping, then creating version file and sorting out any duplicates
+# cleaning up files
 if [[ "$2" == "skip" ]]; then
-        cat nmap-versions-tcp nmap-versions-udp > nmap-versions.txt
+        cat nmap-versions-tcp nmap-versions-udp > nmap-versions
+        sort -u nmap-versions > nmap-versions.txt
         rm nmap-versions-tcp 
         rm nmap-versions-udp
         echo "[+] Scans completed."
         exit
 fi
 
+# running scans on all UDP ports
 nmap -sU -p- -Pn T4 $1 -oN tmp/nmap-udp.all
 
 cat tmp/nmap-udp.all | grep "open " cut -d "/" -f1 > tmp/open-ports-udp.txt
@@ -58,7 +68,7 @@ truncate -s -1 tmp/open-nmap-udp.txt
 
 nmap -sU -sV -Pn --version-all -p$(cat tmp/open-nmap-udp.txt) $1 -oN nmap-udp.all
 
-# cleaning up
+# cleaning up and creating version file
 grep "open " nmap-udp.all > nmap-versions-udp
 cat nmap-versions-tcp nmap-versions-udp > nmap-versions
 sort -u nmap-versions > nmap-versions.txt
