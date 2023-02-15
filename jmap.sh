@@ -18,7 +18,7 @@ if [ ! -d "tmp" ]; then
 fi
 
 echo -e "[+]+ Scanning for quick wins..\n"
-nmap -sS -O -p80,443,21,23,88,139,445,8080 -sV -Pn $1
+nmap -sS -p80,443,21,23,88,139,445,8080 -sV -Pn $1
 
 echo -e "\n[+] Scanning all ports... this may take a while."
 nmap -T4 -p- -Pn $1 | grep open | cut -d "/" -f1 > tmp/open-ports.txt
