@@ -1,7 +1,7 @@
     #!/bin/bash
 
     # usage
-    echo -e “Usage: sudo ./lmap.sh IP all (all is optional, if you want to scan all UDP ports)\n”
+    echo -e “Usage: sudo ./jmap.sh IP all (all is optional, if you want to scan all UDP ports)\n”
 
     # checking if root
     if [ “$(id -u)” -ne 0 ];
