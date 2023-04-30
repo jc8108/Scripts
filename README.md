@@ -8,7 +8,7 @@ You can then supply it a hash that you have to compare it against what it came u
 
 --ADNames-- A python script to take a list of names, and then create common first-last combinations used in Active Directory such as f.last or first.last
 
---good-robot-- Bash script that will wget a robots.txt file from a webpage, parse it, and then open up all those disallowed directories in Firefox.
+--good-bot-- Bash script that will wget a robots.txt file from a webpage, parse it, and then open up all those disallowed directories in Firefox.
 
 --sweep.sh and whos-there.sh-- A ping and Nmap alternative that look to see what hosts are reachable.
 
