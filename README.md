@@ -23,3 +23,4 @@ Sometimes you win, sometimes you lose! As of now it takes no input, more of an e
 
 --SubnetTool-- A python program that outputs subnet info such as network address, and broadcast address given an IPv4 address
 and either its CIDR notation or its subnet address.
+--Webwrapper-- A bash script that takes a URL of a webshell, prompts you for a command, and then passes it to curl.
