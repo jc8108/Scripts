@@ -12,6 +12,8 @@ You can then supply it a hash that you have to compare it against what it came u
 
 --sweep.sh and whos-there.sh-- A ping and Nmap alternative that look to see what hosts are reachable.
 
+--Webwrapper-- A bash script that takes a URL of a webshell, prompts you for a command, and then passes it to curl.
+
 # Tools
 --PasswordAuditor-- A python program that searches in a password dump (I used rockyou.txt) for a supplied password to see if it is in there.
 BYOPD (bring your own password dump). 
@@ -24,4 +26,3 @@ Sometimes you win, sometimes you lose! As of now it takes no input, more of an e
 --SubnetTool-- A python program that outputs subnet info such as network address, and broadcast address given an IPv4 address
 and either its CIDR notation or its subnet address.
 
---Webwrapper-- A bash script that takes a URL of a webshell, prompts you for a command, and then passes it to curl.
