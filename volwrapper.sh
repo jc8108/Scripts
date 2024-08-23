@@ -36,7 +36,7 @@ commands=(
 )
 
 # Extract the base name of the DMP file without extension
-DMP_BASE=$(basename "$DMP" .dmp)
+DMP_BASE=$(basename "$DMP" | sed 's/\(.*\)\..*/\1/')
 
 # Loop over the commands and run each one, saving output to the appropriate file
 for cmd in "${commands[@]}"; do
